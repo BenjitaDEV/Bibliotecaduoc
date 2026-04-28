@@ -13,10 +13,11 @@ package cl.example.Bibliotecaduoc.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import cl.example.Bibliotecaduoc.model.Libro;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import cl.example.Bibliotecaduoc.model.Libro;
 
 
 @Repository
@@ -24,12 +25,6 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
 
     @Query(value = "SELECT * FROM libros WHERE editorial = :editorial", nativeQuery = true)
     List<Libro> selectPorEditorial(@Param("editorial") String editorial);    
-    // private int id;
-    // private String isbn;
-    // private String titulo;
-    // private String editorial;
-    // private int fechaPublicacion;
-    // private String autor;
 
     // //arreglo que guardara todos los libros
     // private List<Libro> listaLibros= new ArrayList<>();
